@@ -1,21 +1,21 @@
-import { Link } from 'react-router-dom'
-import { type Podcast } from '../../types.d'
+import { useNavigate } from 'react-router-dom'
+import { type PodcastViewModel } from '../../types.d'
 
 import './podcastCard.css'
 
-export const PodcastCard = (podcast: Podcast): JSX.Element => {
+export const PodcastCard = (podcast: PodcastViewModel): JSX.Element => {
+  const navigate = useNavigate()
+
+  const handleClickCard = (): void => {
+    navigate(`/podcast/${podcast.id}`, { state: { podcast } })
+  }
   return (
-    <div className="card">
-      <Link
-        to={'/podcast/' + podcast.id.attributes['im:id']}
-        style={{ textDecoration: 'none', color: 'black' }}
-      >
-        <img src={podcast['im:image'][2].label} alt={podcast.title.label} />
-        <div className="card-content">
-          <h2 className="card-title">{podcast['im:name'].label}</h2>
-          <p className="card-author">Author: {podcast['im:artist'].label}</p>
-        </div>
-      </Link>
+    <div className="card" onClick={handleClickCard}>
+      <img src={podcast.image} alt={podcast.title} />
+      <div className="card-content">
+        <h2 className="card-title">{podcast.name}</h2>
+        <p className="card-author">Author: {podcast.author}</p>
+      </div>
     </div>
   )
 }

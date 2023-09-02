@@ -6,6 +6,7 @@
   margin: 30px auto;
   position: relative;
   height: 300px;
+  cursor: pointer;
 }
 
 .card img {

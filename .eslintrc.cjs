@@ -25,5 +25,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/comma-dangle': 'off',
+    'multiline-ternary': 'off',
   },
 }

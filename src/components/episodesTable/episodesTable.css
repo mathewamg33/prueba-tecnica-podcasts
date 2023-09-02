@@ -1,0 +1,44 @@
+.column-right {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.episodes-counter {
+  display: flex;
+  padding: 10px 0 10px 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.episodes-counter span {
+  margin-left: 10px;
+}
+
+.episodes-table {
+  width: 100%;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgba(255, 255, 255, 0.5);
+}
+
+.episodes-table th,
+.episodes-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.episodes-table th {
+  width: 80%;
+}
+
+.episodes-table tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Cambia el color de fondo a tu elección */
+}
