@@ -10,6 +10,7 @@ function App(): JSX.Element {
   const handleIsLoadingPodcasts = (isLoading: boolean): void => {
     setIsLoading(isLoading)
   }
+
   return (
     <>
       <header>
@@ -30,9 +31,12 @@ function App(): JSX.Element {
           }
         />
         <Route path="/podcast/:podcastId" element={<PodcastDetail />}>
-          <Route path="episode/:episodeId" element={<EpisodeDetailCard />}/>
+          <Route path="episode/:episodeId" element={<EpisodeDetailCard />} />
         </Route>
-        <Route path="*" element={<h1 style={{color: '#fff'}}>Not Found</h1>} />
+        <Route
+          path="*"
+          element={<h1 style={{ color: '#fff', marginTop: '10%' }}>Not Found</h1>}
+        />
       </Routes>
     </>
   )

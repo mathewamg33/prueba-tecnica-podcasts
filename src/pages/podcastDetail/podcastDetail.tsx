@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom'
+import { Outlet, useLocation, useParams } from 'react-router-dom'
 
-import { EpisodesTable } from '../../components'
+import { PodcastDetailCard, EpisodesTable } from '../../components'
 import { FETCH_PODCAST_CONTENT_MSG_ERROR } from '../../consts'
 import { hasDayPassedSinceLastUpdate } from '../../helpers'
 import { mapEpisodeAPIModelToPodcastViewModel } from '../../mappers'
@@ -14,7 +14,10 @@ export const PodcastDetail = (): JSX.Element => {
   const location = useLocation()
   const podcast: PodcastViewModel = location.state?.podcast
 
-  const [podcastDetail, setPodcastDetail] = useState<PodcastViewModel>(podcast)
+  const [podcastDetail, setPodcastDetail] = useState<PodcastViewModel>({
+    ...podcast,
+    id: podcastId ?? podcast.id,
+  })
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const podcastKeyLocalStorage = `podcast${podcastId}`
@@ -62,31 +65,7 @@ export const PodcastDetail = (): JSX.Element => {
 
   return (
     <div className="container">
-      <div className="podcast-detail">
-        <Link
-          to={`/podcast/${podcastId}`}
-          style={{ textDecoration: 'none', color: '#000' }}
-          state={{ podcast: podcastDetail }}
-        >
-          <img src={podcastDetail?.image} alt={podcastDetail?.title} />
-          <div className="divider"></div>
-          <div className="podcast-content">
-            <div className="podcast-detail-title">
-              <strong>{podcastDetail?.name}</strong>
-              <br />
-              by {podcastDetail?.author}
-            </div>
-            <div className="divider"></div>
-            <div className="podcast-description">
-              <p>
-                <strong>Description:</strong>
-                <br />
-                {podcastDetail?.summary}
-              </p>
-            </div>
-          </div>
-        </Link>
-      </div>
+      <PodcastDetailCard {...podcastDetail} />
       {episodeId != null ? (
         <Outlet />
       ) : (

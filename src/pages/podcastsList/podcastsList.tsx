@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import type { APIResponse, PodcastViewModel } from '../../types.d'
 import { PodcastCard } from '../../components'
-import './podcastsList.css'
 import { hasDayPassedSinceLastUpdate } from '../../helpers'
 import { mapPodcastAPIModelToViewModel } from '../../mappers'
 import { FETCH_PODCASTS_MSG_ERROR } from '../../consts'
+
+import './podcastsList.css'
 
 interface Props {
   onIsLoadingPodcasts: (isLoading: boolean) => void

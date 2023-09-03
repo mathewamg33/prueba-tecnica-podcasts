@@ -28,7 +28,7 @@ export const mapEpisodeAPIModelToPodcastViewModel = (
     title: tempPodcast?.collectionName,
     image: tempPodcast?.artworkUrl600,
     name: tempPodcast?.trackName,
-    author: tempPodcast?.artistName ?? '',
+    author: tempPodcast?.artistName,
     episodes: episodes.results.filter(
       (episode) => episode.wrapperType === PODCAST_EPISODE,
     ),

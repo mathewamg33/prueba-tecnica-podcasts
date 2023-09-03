@@ -9,8 +9,9 @@ export const PodcastCard = (podcast: PodcastViewModel): JSX.Element => {
   const handleClickCard = (): void => {
     navigate(`/podcast/${podcast.id}`, { state: { podcast } })
   }
+
   return (
-    <div className="card" onClick={handleClickCard}>
+    <div data-testid="podcast-card" className="card" onClick={handleClickCard}>
       <img src={podcast.image} alt={podcast.title} />
       <div className="card-content">
         <h2 className="card-title">{podcast.name}</h2>

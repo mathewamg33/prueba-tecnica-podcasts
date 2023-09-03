@@ -10,7 +10,7 @@ export const EpisodeDetailCard = (): JSX.Element => {
     <div className="episode-detail">
       <h2>{episode?.trackName}</h2>
       <p dangerouslySetInnerHTML={{ __html: episode?.description ?? '' }}/>
-      <audio controls src={episode?.episodeUrl}></audio>
+      <audio data-testid="episode-audio" controls src={episode?.episodeUrl}></audio>
     </div>
   )
 }
