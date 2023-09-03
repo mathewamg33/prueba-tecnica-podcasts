@@ -27,4 +27,12 @@ describe('EpisodeDetailCard', () => {
     expect(audioElement).toBeTruthy()
     expect(audioElement.getAttribute('src')).toBe('test.mp3')
   })
+
+  it('should render episode not found', () => {
+    (mockLocation.state.episode as any) = undefined
+
+    const { getByText } = render(<EpisodeDetailCard />)
+
+    expect(getByText('Episode Not Found')).toBeTruthy()
+  })
 })

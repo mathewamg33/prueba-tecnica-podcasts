@@ -63,7 +63,7 @@ export const PodcastDetail = (): JSX.Element => {
     fetchPodcastDetail()
   }, [])
 
-  return (
+  return podcastDetail.name != null ? (
     <div className="container">
       <PodcastDetailCard {...podcastDetail} />
       {episodeId != null ? (
@@ -72,5 +72,7 @@ export const PodcastDetail = (): JSX.Element => {
         <EpisodesTable isLoading={isLoading} podcast={podcastDetail} />
       )}
     </div>
+  ) : (
+    <h1 style={{ margin: '20%', color: '#fff' }}>Podcast Not Found</h1>
   )
 }

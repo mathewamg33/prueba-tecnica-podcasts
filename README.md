@@ -50,7 +50,7 @@ Abre tu navegador y navega a la URL proporcionada. Los cambios en el código se 
 Cuando hayas terminado, detén el servidor de desarrollo presionando Ctrl + C en la terminal.
 
 
-## asos para Desplegar en Modo _Production_
+## Pasos para Desplegar en Modo _Production_
 
 1. **Construye tu proyecto de producción:** 
 
